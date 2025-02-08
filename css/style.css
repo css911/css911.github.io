@@ -363,7 +363,9 @@ button:focus {
       vertical-align: middle;
       align-self: center; }
     .home_banner_area .banner_inner .banner_content {
-      text-align: left; }
+      text-align: left;
+      padding-top: 280px;
+    }
       @media (max-width: 991px) {
         .home_banner_area .banner_inner .banner_content {
           margin-top: 150px; } }
@@ -2897,7 +2899,9 @@ h6 {
   /* Home Banner Area css
   ============================================================================================ */
   .home_banner_area .banner_inner {
-    padding: 100px 0px; }
+    padding: 100px 0px;
+    
+  }
 
   /* End Home Banner Area css
   ============================================================================================ */
