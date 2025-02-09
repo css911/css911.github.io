@@ -29,3 +29,25 @@
             });
         });
     });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+
+        function changeActiveLink() {
+            let scrollPosition = window.scrollY + 100; // Offset to trigger active state
+
+            sections.forEach((section) => {
+                if (scrollPosition >= section.offsetTop && scrollPosition < section.offsetTop + section.offsetHeight) {
+                    navLinks.forEach((link) => {
+                        link.classList.remove("active"); // Remove active from all
+                        if (link.getAttribute("href").substring(1) === section.id) {
+                            link.classList.add("active"); // Add active to current section
+                        }
+                    });
+                }
+            });
+        }
+
+        window.addEventListener("scroll", changeActiveLink);
+    });
