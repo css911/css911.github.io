@@ -2884,7 +2884,7 @@ h6 {
 
 .subscription_box {
   background: url(../img/subscribe-bg.png) no-repeat center;
-  padding: 70px 0px; }
+  padding: 30px 30px 80px 50px; }
   @media (max-width: 767px) {
     .subscription_box {
       padding: 50px 20px; } }
