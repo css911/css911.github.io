@@ -32,22 +32,35 @@
 
     document.addEventListener("DOMContentLoaded", function () {
         const sections = document.querySelectorAll("section");
-        const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+        const navLinks = document.querySelectorAll(".menu_nav .nav-link");
 
         function changeActiveLink() {
-            let scrollPosition = window.scrollY + 100; // Offset to trigger active state
+            let scrollPosition = window.scrollY + 100; // Offset for proper detection
 
+            let activeFound = false;
             sections.forEach((section) => {
                 if (scrollPosition >= section.offsetTop && scrollPosition < section.offsetTop + section.offsetHeight) {
                     navLinks.forEach((link) => {
-                        link.classList.remove("active"); // Remove active from all
+                        link.classList.remove("active");
                         if (link.getAttribute("href").substring(1) === section.id) {
-                            link.classList.add("active"); // Add active to current section
+                            link.classList.add("active");
+                            activeFound = true;
                         }
                     });
                 }
             });
+
+            // If no active section found (at top), default to Home tab
+            if (!activeFound) {
+                navLinks.forEach((link) => link.classList.remove("active"));
+                document.querySelector('.menu_nav .nav-link[href="#home"]').classList.add("active");
+            }
         }
 
+        // Run on page load and scroll
         window.addEventListener("scroll", changeActiveLink);
+        changeActiveLink(); // Run immediately to set the correct active tab
     });
+
+
+
